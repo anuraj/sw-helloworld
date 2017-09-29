@@ -44,7 +44,7 @@
             messagingSenderId: "321043996130"
         };
         firebase.initializeApp(config);
-        const messaging = firebase.messaging();
+        
         var saveMessagingDeviceToken = function () {
             firebase.messaging().getToken().then(function (currentToken) {
                 if (currentToken) {
@@ -69,22 +69,6 @@
                 console.error('Unable to get permission to notify.', error);
             });
         };
-
-        messaging.onMessage(function (payload) {
-            console.log("Message received. ", payload);
-        });
-
-        messaging.setBackgroundMessageHandler(function (payload) {
-            console.log('[firebase-messaging-sw.js] Received background message ', payload);
-            const notificationTitle = 'Background Message Title';
-            const notificationOptions = {
-                body: 'Background Message body.',
-                icon: '/firebase-logo.png'
-            };
-
-            return self.registration.showNotification(notificationTitle,
-                notificationOptions);
-        });
     </script>
 </body>
 
