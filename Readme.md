@@ -1,1 +1,1 @@
-"# Service Worker - Hello World" 
+# Service Worker - Hello World
