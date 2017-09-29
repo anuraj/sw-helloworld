@@ -44,6 +44,7 @@
             messagingSenderId: "321043996130"
         };
         firebase.initializeApp(config);
+        const messaging = firebase.messaging();
         var saveMessagingDeviceToken = function () {
             firebase.messaging().getToken().then(function (currentToken) {
                 if (currentToken) {
